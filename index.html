@@ -5,89 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sisa Killari</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-background:url('fondo.png') center/cover fixed no-repeat;
-font-family:Georgia,serif;
-}
-.overlay{
-background:rgba(245,242,235,.45);
-min-height:100vh;
-}
-.logo{
-display:block;
-width:100vw;
-max-width:100vw;
-margin:0 auto;
-}
-.grid{
-display:grid;
-grid-template-columns:1fr;
-gap:12px;
-padding:0 10px 20px;
-max-width:700px;
-margin:auto;
-}
-.card{
-position:relative;
-background:rgba(255,255,255,.72);
-border-radius:22px;
-overflow:hidden;
-}
+body{font-family:Georgia,serif;background:url('fondo.png') center/cover fixed no-repeat}
+.overlay{background:rgba(245,242,235,.45);min-height:100vh}
+.logo{display:block;width:100vw;max-width:100vw;margin:0 auto}
+.grid{display:grid;grid-template-columns:1fr;gap:12px;padding:0 10px 20px;max-width:700px;margin:auto}
+.card{position:relative;background:rgba(255,255,255,.72);border-radius:22px;overflow:hidden}
 .card img{width:100%;display:block}
-.add{
-position:absolute;top:10px;right:10px;
-width:42px;height:42px;border:none;border-radius:50%;
-background:#6d9865;color:white;font-size:24px;
-}
-.cartbtn{
-position:fixed;top:12px;right:12px;
-width:54px;height:54px;border-radius:50%;
-background:#6d9865;color:white;text-decoration:none;
-display:flex;align-items:center;justify-content:center;
-z-index:1000;
-}
-.badge{
-position:absolute;top:-3px;right:-3px;
-background:#d33;color:#fff;border-radius:50%;
-padding:2px 6px;font-size:11px;
-}
-.wa{
-position:fixed;bottom:14px;right:14px;
-width:54px;height:54px;border-radius:50%;
-background:#25D366;color:white;text-decoration:none;
-display:flex;align-items:center;justify-content:center;
-}
-.sidebar{
-position:fixed;right:-330px;top:0;
-width:310px;height:100%;
-background:white;padding:18px;
-transition:.3s;overflow:auto;
-}
+.add{position:absolute;top:10px;right:10px;width:42px;height:42px;border:none;border-radius:50%;background:#6d9865;color:white;font-size:24px}
+.cartbtn{position:fixed;top:12px;right:12px;width:54px;height:54px;border-radius:50%;background:#6d9865;color:white;text-decoration:none;display:flex;align-items:center;justify-content:center;z-index:1000}
+.badge{position:absolute;top:-3px;right:-3px;background:#d33;color:#fff;border-radius:50%;padding:2px 6px;font-size:11px}
+.wa{position:fixed;bottom:14px;right:14px;width:54px;height:54px;border-radius:50%;background:#25D366;color:white;text-decoration:none;display:flex;align-items:center;justify-content:center}
+.sidebar{position:fixed;right:-330px;top:0;width:310px;height:100%;background:white;padding:18px;transition:.3s;overflow:auto}
 .sidebar.open{right:0}
 .row{display:flex;justify-content:space-between;margin:10px 0}
-select{
-width:100%;padding:8px;margin:8px 0;
-}
-.btn{
-display:block;margin-top:15px;padding:12px;
-background:#6d9865;color:white;text-decoration:none;
-text-align:center;border-radius:10px;
-}
-.esencia{
-max-width:800px;margin:20px auto;padding:20px;
-background:rgba(255,255,255,.7);border-radius:18px;
-}
-.esencia h2{
-font-family:'Cormorant Garamond',serif;
-font-size:42px;margin-bottom:10px;
-}
+select{width:100%;padding:8px;margin:8px 0}
+.btn{display:block;margin-top:15px;padding:12px;background:#6d9865;color:white;text-decoration:none;text-align:center;border-radius:10px}
 </style>
 </head>
 <body>
 <div class="overlay">
-
 <img src="logo.png" class="logo">
 
 <div class="grid">
@@ -96,12 +33,6 @@ font-size:42px;margin-bottom:10px;
 <div class="card"><button class="add" onclick="add('Agua Florida')">+</button><img src="producto3.png"></div>
 <div class="card"><button class="add" onclick="add('Desodorante Natural')">+</button><img src="producto4.png"></div>
 </div>
-
-<div class="esencia">
-<h2>Nuestra Esencia</h2>
-<p>En Sisa Killari elaboramos productos naturales inspirados en saberes ancestrales y el poder de las plantas.</p>
-</div>
-
 </div>
 
 <a href="#" class="cartbtn" onclick="toggleCart();return false;">🛒<span id="count" class="badge">0</span></a>
@@ -112,32 +43,85 @@ font-size:42px;margin-bottom:10px;
 <div id="items"></div>
 
 <label>Provincia</label>
-<select id="provincia" onchange="render()">
+<select id="provincia" onchange="provinciaChanged()">
 <option>CABA</option>
 <option>Buenos Aires</option>
+<option>Catamarca</option>
+<option>Chaco</option>
+<option>Chubut</option>
 <option>Córdoba</option>
-<option>Santa Fe</option>
-<option>Mendoza</option>
+<option>Corrientes</option>
 <option>Entre Ríos</option>
+<option>Formosa</option>
+<option>Jujuy</option>
+<option>La Pampa</option>
+<option>La Rioja</option>
+<option>Mendoza</option>
+<option>Misiones</option>
+<option>Neuquén</option>
+<option>Río Negro</option>
+<option>Salta</option>
+<option>San Juan</option>
+<option>San Luis</option>
+<option>Santa Cruz</option>
+<option>Santa Fe</option>
+<option>Santiago del Estero</option>
+<option>Tierra del Fuego</option>
+<option>Tucumán</option>
 </select>
 
+<div id="localidadWrap" style="display:none">
 <label>Localidad</label>
 <select id="localidad" onchange="render()">
-<option>Villa Elisa</option>
-<option>City Bell</option>
-<option>Gonnet</option>
-<option>La Plata</option>
-<option>Berisso</option>
-<option>Ensenada</option>
-<option>Quilmes</option>
 <option>Avellaneda</option>
+<option>Bahía Blanca</option>
+<option>Banfield</option>
+<option>Berazategui</option>
+<option>Berisso</option>
+<option>Campana</option>
+<option>Castelar</option>
+<option>Chivilcoy</option>
+<option>City Bell</option>
+<option>Ensenada</option>
+<option>Escobar</option>
+<option>Ezpeleta</option>
+<option>Florida</option>
+<option>General Rodríguez</option>
+<option>Gonnet</option>
+<option>Haedo</option>
+<option>Ituzaingó</option>
+<option>José C. Paz</option>
+<option>Junín</option>
+<option>La Plata</option>
 <option>Lanús</option>
-<option>San Isidro</option>
-<option>Tigre</option>
+<option>Lomas de Zamora</option>
+<option>Luján</option>
+<option>Malvinas Argentinas</option>
+<option>Mar del Plata</option>
+<option>Martínez</option>
+<option>Merlo</option>
+<option>Moreno</option>
 <option>Morón</option>
-<option>Ramos Mejía</option>
+<option>Necochea</option>
+<option>Olavarría</option>
+<option>Olivos</option>
+<option>Pergamino</option>
 <option>Pilar</option>
+<option>Quilmes</option>
+<option>Ramos Mejía</option>
+<option>Ringuelet</option>
+<option>San Fernando</option>
+<option>San Isidro</option>
+<option>San Miguel</option>
+<option>Tandil</option>
+<option>Temperley</option>
+<option>Tigre</option>
+<option>Tolosa</option>
+<option>Vicente López</option>
+<option>Villa Elisa</option>
+<option>Zárate</option>
 </select>
+</div>
 
 <a id="pedido" class="btn" target="_blank">Hacer Pedido</a>
 </div>
@@ -147,19 +131,26 @@ let cart={};
 function add(n){cart[n]=(cart[n]||0)+1;render();}
 function change(n,v){cart[n]+=v;if(cart[n]<=0)delete cart[n];render();}
 function toggleCart(){document.getElementById('cart').classList.toggle('open');}
+function provinciaChanged(){
+ document.getElementById('localidadWrap').style.display =
+ document.getElementById('provincia').value==='Buenos Aires' ? 'block':'none';
+ render();
+}
 function render(){
 document.getElementById('count').innerText=Object.values(cart).reduce((a,b)=>a+b,0);
 let h='';
 for(let k in cart){
-h+=`<div class="row">${k}<span><button onclick="change('${k}',-1)">-</button> ${cart[k]} <button onclick="change('${k}',1)">+</button></span></div>`;
+ h+=`<div class="row">${k}<span><button onclick="change('${k}',-1)">-</button> ${cart[k]} <button onclick="change('${k}',1)">+</button></span></div>`;
 }
 document.getElementById('items').innerHTML=h;
 
 let txt='Hola 🌿%0A%0AQuiero estos productos:%0A';
 for(let k in cart){txt+='• '+k+' x'+cart[k]+'%0A';}
-txt+='%0ATe escribo desde:%0A';
-txt+='Provincia: '+document.getElementById('provincia').value+'%0A';
-txt+='Localidad: '+document.getElementById('localidad').value;
+txt+='%0ATe escribo desde:%0AProvincia: '+document.getElementById('provincia').value;
+
+if(document.getElementById('provincia').value==='Buenos Aires'){
+ txt+='%0ALocalidad: '+document.getElementById('localidad').value;
+}
 document.getElementById('pedido').href='https://wa.me/5492215980355?text='+txt;
 }
 render();
