@@ -1,215 +1,79 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sisa Killari</title><style>
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-margin:0;
-font-family:Georgia,serif;
-background:#f6f4ef;
-color:#5b6b59;
-}
-
-nav{
-position:sticky;
-top:0;
-background:#fdfcf9;
-padding:18px;
-display:flex;
-justify-content:center;
-gap:30px;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
-z-index:100;
-}
-
-nav a{
-text-decoration:none;
-color:#5b6b59;
-font-weight:bold;
-font-size:1.1rem;
-}
-
-.hero{
-background:#edf1eb;
-text-align:center;
-padding:50px 20px;
-}
-
-.logo{
-width:260px;
-max-width:85%;
-display:block;
-margin:auto;
-}
-
-h1{
-font-size:4rem;
-margin:20px 0 10px;
-}
-
-.subtitulo{
-font-size:1.5rem;
-max-width:700px;
-margin:auto;
-}
-
-.boton{
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-background:#91a88c;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-size:1.1rem;
-font-weight:bold;
-}
-
-.seccion{
-padding:60px 20px;
-text-align:center;
-}
-
-.seccion h2{
-font-size:3rem;
-margin-bottom:30px;
-}
-
-.catalogo{
-display:block;
-width:100%;
-max-width:900px;
-margin:auto;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.12);
-}
-
-.productos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.card img{
-width:100%;
-display:block;
-}
-
-.card h3{
-padding:15px;
-margin:0;
-}
-
-.card a{
-display:inline-block;
-margin:0 0 20px;
-padding:12px 25px;
-background:#91a88c;
-color:white;
-text-decoration:none;
-border-radius:30px;
-}
-
-.nosotros{
-max-width:800px;
-margin:auto;
-font-size:1.25rem;
-line-height:1.8;
-}
-
-.contacto{
-font-size:1.4rem;
-font-weight:bold;
-}
-
-footer{
-background:#edf1eb;
-padding:30px;
-text-align:center;
-margin-top:50px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:16px 25px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 5px 15px rgba(0,0,0,.25);
-}
-
-@media(max-width:768px){
-
-h1{
-font-size:2.8rem;
-}
-
-.seccion h2{
-font-size:2.2rem;
-}
-
-.subtitulo{
-font-size:1.2rem;
-}
-
-nav{
-gap:20px;
-}
-
-}
-
-</style></head><body><nav>
+<title>Sisa Killari</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Georgia,serif;background:#f5f3ee;color:#5b6b59;}
+nav{position:sticky;top:0;background:#faf9f6;padding:18px;display:flex;justify-content:center;gap:30px;box-shadow:0 2px 10px rgba(0,0,0,.08);z-index:1000;}
+nav a{text-decoration:none;color:#5b6b59;font-weight:bold;font-size:1.1rem;}
+.hero{background:#edf1eb;padding:50px 20px;text-align:center;}
+.logo{width:250px;max-width:90%;display:block;margin:auto;}
+h1{font-size:4rem;margin-top:20px;}
+.subtitulo{font-size:1.4rem;max-width:700px;margin:20px auto;}
+.boton{display:inline-block;background:#91a88c;color:white;padding:15px 35px;border-radius:40px;text-decoration:none;font-weight:bold;margin-top:20px;}
+.seccion{padding:70px 20px;text-align:center;}
+.seccion h2{font-size:3.5rem;margin-bottom:30px;}
+.catalogo{width:100%;max-width:1000px;height:auto;display:block;margin:auto;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,.15);}
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;max-width:1200px;margin:auto;}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08);}
+.card img{width:100%;display:block;}
+.card h3{padding:15px;font-size:1.5rem;}
+.card a{display:inline-block;margin-bottom:20px;padding:12px 25px;background:#91a88c;color:white;border-radius:30px;text-decoration:none;font-weight:bold;}
+.nosotros{max-width:850px;margin:auto;font-size:1.3rem;line-height:1.8;}
+footer{background:#edf1eb;padding:30px;text-align:center;margin-top:50px;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:16px 28px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 5px 15px rgba(0,0,0,.25);z-index:999;}
+</style>
+</head>
+<body>
+<nav>
 <a href="#inicio">Inicio</a>
 <a href="#catalogo">Catálogo</a>
 <a href="#productos">Productos</a>
 <a href="#contacto">Pedido</a>
-</nav><section class="hero" id="inicio"><img src="logo.png" class="logo" alt="Sisa Killari"><h1>Sisa Killari</h1><p class="subtitulo">
-Productos naturales elaborados artesanalmente
-</p><a href="#catalogo" class="boton">
-Ver Catálogo
-</a></section><section class="seccion" id="catalogo"><h2>Catálogo Completo</h2><img src="catalogo.png" class="catalogo" alt="Catálogo Sisa Killari"></section><section class="seccion" id="productos"><h2>Nuestros Productos</h2><div class="productos"><div class="card">
-<img src="producto1.png" alt="Crema Curativa">
-<h3>Crema Curativa</h3>
-<a href="https://wa.me/5492215980355">Consultar</a>
-</div><div class="card">
-<img src="producto2.png" alt="Repelente Natural">
-<h3>Repelente Natural</h3>
-<a href="https://wa.me/5492215980355">Consultar</a>
-</div><div class="card">
-<img src="producto3.png" alt="Agua Florida">
-<h3>Agua Florida</h3>
-<a href="https://wa.me/5492215980355">Consultar</a>
-</div><div class="card">
-<img src="producto4.png" alt="Desodorante Natural">
-<h3>Desodorante Natural</h3>
-<a href="https://wa.me/5492215980355">Consultar</a>
-</div></div></section><section class="seccion"><h2>Nuestra Esencia</h2><div class="nosotros">En Sisa Killari elaboramos productos naturales inspirados en el conocimiento ancestral de las plantas. Cada preparación es realizada artesanalmente, con dedicación, respeto por la naturaleza y amor por el bienestar de las personas.
+</nav>
 
-</div></section><section class="seccion" id="contacto"><h2>Contacto</h2><div class="contacto">
-📱 +54 9 221 598-0355
-</div><br><a href="https://wa.me/5492215980355" class="boton">
-Pedir por WhatsApp
-</a></section><footer>Sisa Killari • Productos Naturales
+<section class="hero" id="inicio">
+<img src="logo.png" class="logo">
+<h1>Sisa Killari</h1>
+<p class="subtitulo">Productos naturales elaborados artesanalmente</p>
+<a href="#catalogo" class="boton">Ver Catálogo</a>
+</section>
 
-</footer><a class="whatsapp" href="https://wa.me/5492215980355">
-WhatsApp
-</a></body>
+<section class="seccion" id="catalogo">
+<h2>Catálogo</h2>
+<img src="catalogo.png" class="catalogo">
+</section>
+
+<section class="seccion" id="productos">
+<h2>Nuestros Productos</h2>
+<div class="productos">
+<div class="card"><img src="producto1.png"><h3>Crema Curativa</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
+<div class="card"><img src="producto2.png"><h3>Repelente Natural</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
+<div class="card"><img src="producto3.png"><h3>Agua Florida</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
+<div class="card"><img src="producto4.png"><h3>Desodorante Natural</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
+</div>
+</section>
+
+<section class="seccion">
+<h2>Nuestra Esencia</h2>
+<div class="nosotros">
+En Sisa Killari elaboramos productos naturales inspirados en el conocimiento ancestral de las plantas y el bienestar consciente. Cada producto es elaborado artesanalmente con dedicación, amor y respeto por la naturaleza.
+</div>
+</section>
+
+<section class="seccion" id="contacto">
+<h2>Contacto</h2>
+<p style="font-size:1.5rem;font-weight:bold;">📱 +54 9 221 598-0355</p>
+<br>
+<a href="https://wa.me/5492215980355" class="boton">Pedir por WhatsApp</a>
+</section>
+
+<footer>Sisa Killari • Productos Naturales</footer>
+
+<a class="whatsapp" href="https://wa.me/5492215980355">WhatsApp</a>
+</body>
 </html>
