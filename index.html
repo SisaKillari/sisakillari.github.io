@@ -5,251 +5,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sisa Killari</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
+background:url('fondo.png') center/cover fixed no-repeat;
 font-family:Georgia,serif;
-background:url('fondo.png') center center / cover fixed no-repeat;
-color:#31422f;
 }
-
 .overlay{
-background:rgba(245,245,238,.78);
+background:rgba(245,242,235,.55);
 min-height:100vh;
-padding:20px 12px 120px;
+padding:8px 10px 60px;
 }
-
 .logo{
 display:block;
-width:240px;
-max-width:85%;
-margin:10px auto 25px;
-border-radius:50%;
-box-shadow:0 10px 25px rgba(0,0,0,.18);
+width:98vw;
+max-width:520px;
+margin:0 auto -10px auto;
 }
-
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-max-width:1100px;
+grid-template-columns:1fr;
+gap:14px;
+max-width:700px;
 margin:auto;
 }
-
 .card{
-background:rgba(255,255,255,.65);
-backdrop-filter:blur(8px);
-border-radius:22px;
-overflow:hidden;
 position:relative;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(6px);
+border-radius:24px;
+overflow:hidden;
 }
-
-.card img{
-width:100%;
-display:block;
-}
-
+.card img{width:100%;display:block}
 .add{
 position:absolute;
 top:10px;
 right:10px;
-width:42px;
-height:42px;
+width:48px;
+height:48px;
 border:none;
 border-radius:50%;
-background:#5f8d5d;
-color:white;
-font-size:24px;
-cursor:pointer;
+background:#6b9662;
+color:#fff;
+font-size:28px;
 }
-
-.flash{
-animation:flash .45s;
-}
-
-@keyframes flash{
-50%{box-shadow:0 0 30px #6cff96;}
-}
-
 .esencia{
-max-width:900px;
-margin:35px auto;
-padding:25px;
-background:rgba(255,255,255,.70);
-backdrop-filter:blur(8px);
-border-radius:22px;
+max-width:800px;
+margin:25px auto;
+padding:20px;
+background:rgba(255,255,255,.7);
+border-radius:20px;
 }
-
 .esencia h2{
 font-family:'Cormorant Garamond',serif;
-font-size:48px;
-margin-bottom:12px;
+font-size:42px;
+margin-bottom:10px;
 }
-
-.esencia p{
-font-size:1.1rem;
-line-height:1.8;
-}
-
-.float{
+.floatcart{
 position:fixed;
-bottom:18px;
-width:54px;
-height:54px;
+top:14px;
+right:14px;
+width:55px;
+height:55px;
 border-radius:50%;
+background:#6b9662;
+color:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
 text-decoration:none;
-color:white;
-z-index:1000;
 font-size:24px;
+z-index:999;
 }
-
-.cart{
-left:14px;
-background:#5f7f58;
-}
-
-.wa{
-right:14px;
-background:#25D366;
-}
-
 .badge{
 position:absolute;
-top:-4px;
-right:-4px;
-background:#d53939;
-color:white;
+top:-3px;
+right:-3px;
+background:#d33;
+color:#fff;
 border-radius:50%;
+padding:2px 6px;
 font-size:11px;
-padding:3px 6px;
 }
-
+.wa{
+position:fixed;
+right:14px;
+bottom:14px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:#25D366;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:24px;
+}
 .sidebar{
 position:fixed;
-top:0;
 right:-320px;
+top:0;
 width:300px;
 height:100%;
-background:white;
+background:#fff;
 padding:20px;
 transition:.3s;
 overflow:auto;
-box-shadow:-4px 0 20px rgba(0,0,0,.25);
-pointer-events:none;
-z-index:1200;
 }
-
-.sidebar.open{
-right:0;
-pointer-events:auto;
-}
-
+.sidebar.open{right:0}
 .row{
 display:flex;
 justify-content:space-between;
 margin:10px 0;
 }
-
-textarea{
-width:100%;
-height:90px;
-margin-top:12px;
-}
-
-.btnpedido{
+.btn{
 display:block;
 margin-top:15px;
 padding:12px;
-text-align:center;
-background:#5f7f58;
-color:white;
+background:#6b9662;
+color:#fff;
 text-decoration:none;
+text-align:center;
 border-radius:12px;
 }
 </style>
 </head>
 <body>
-
 <div class="overlay">
 
 <img src="logo.png" class="logo">
 
 <div class="grid">
-<div class="card"><button class="add" onclick="agregar('Crema Curativa',this)">+</button><img src="producto1.png"></div>
-<div class="card"><button class="add" onclick="agregar('Repelente Natural',this)">+</button><img src="producto2.png"></div>
-<div class="card"><button class="add" onclick="agregar('Agua Florida',this)">+</button><img src="producto3.png"></div>
-<div class="card"><button class="add" onclick="agregar('Desodorante Natural',this)">+</button><img src="producto4.png"></div>
+<div class="card"><button class="add" onclick="add('Crema Curativa')">+</button><img src="producto1.png"></div>
+<div class="card"><button class="add" onclick="add('Repelente Natural')">+</button><img src="producto2.png"></div>
+<div class="card"><button class="add" onclick="add('Agua Florida')">+</button><img src="producto3.png"></div>
+<div class="card"><button class="add" onclick="add('Desodorante Natural')">+</button><img src="producto4.png"></div>
 </div>
 
 <div class="esencia">
 <h2>Nuestra Esencia</h2>
-<p>
-En Sisa Killari honramos el vínculo entre la naturaleza y el bienestar. Elaboramos productos artesanales inspirados en conocimientos ancestrales, utilizando ingredientes naturales seleccionados con cuidado y respeto. Cada preparación nace con la intención de acompañar el equilibrio, la limpieza y el cuidado consciente del cuerpo.
-</p>
+<p>En Sisa Killari elaboramos productos naturales inspirados en saberes ancestrales y el poder de las plantas. Cada preparación es artesanal, creada para acompañar el bienestar, el equilibrio y el cuidado consciente del cuerpo.</p>
 </div>
 
 </div>
 
-<div id="sidebar" class="sidebar">
+<a href="#" class="floatcart" onclick="toggleCart();return false;">🛒<span id="count" class="badge">0</span></a>
+<a href="https://wa.me/5492215980355" class="wa">💬</a>
+
+<div id="cart" class="sidebar">
 <h2>Tu Pedido</h2>
 <div id="items"></div>
-<textarea id="obs" placeholder="Observaciones..."></textarea>
-<a id="pedido" class="btnpedido" target="_blank">🌿 Hacer mi pedido</a>
+<a id="send" class="btn" target="_blank">Hacer Pedido</a>
 </div>
 
-<a href="#" class="float cart" onclick="toggleCart();return false;">
-🛒
-<span id="count" class="badge">0</span>
-</a>
-
-<a href="https://wa.me/5492215980355" class="float wa">💬</a>
-
 <script>
-let carrito={};
-
-function agregar(nombre,btn){
-carrito[nombre]=(carrito[nombre]||0)+1;
-btn.parentElement.classList.add('flash');
-setTimeout(()=>btn.parentElement.classList.remove('flash'),450);
-render();
-}
-
-function cambiar(n,v){
-carrito[n]+=v;
-if(carrito[n]<=0) delete carrito[n];
-render();
-}
-
+let cart={};
+function add(n){cart[n]=(cart[n]||0)+1;render();}
+function change(n,v){cart[n]+=v;if(cart[n]<=0)delete cart[n];render();}
 function render(){
-document.getElementById('count').innerText=Object.values(carrito).reduce((a,b)=>a+b,0);
-
-let html='';
-for(let k in carrito){
-html+=`<div class="row">${k}<span><button onclick="cambiar('${k}',-1)">-</button> ${carrito[k]} <button onclick="cambiar('${k}',1)">+</button></span></div>`;
+document.getElementById('count').innerText=Object.values(cart).reduce((a,b)=>a+b,0);
+let h='';
+for(let k in cart){
+h+=`<div class="row">${k}<span><button onclick="change('${k}',-1)">-</button> ${cart[k]} <button onclick="change('${k}',1)">+</button></span></div>`;
 }
-document.getElementById('items').innerHTML=html;
-
-let txt='Hola Sisa Killari 🌿%0A%0AQuiero pedir:%0A';
-for(let k in carrito){
-txt+='• '+k+' x'+carrito[k]+'%0A';
+document.getElementById('items').innerHTML=h;
+let txt='Hola 🌿%0A%0AQuiero estos productos:%0A';
+for(let k in cart){txt+='• '+k+' x'+cart[k]+'%0A';}
+document.getElementById('send').href='https://wa.me/5492215980355?text='+txt;
 }
-txt+='%0AObservaciones:%0A'+encodeURIComponent(document.getElementById('obs').value||'');
-
-document.getElementById('pedido').href='https://wa.me/5492215980355?text='+txt;
-}
-
-document.getElementById('obs').addEventListener('input',render);
-
-function toggleCart(){
-document.getElementById('sidebar').classList.toggle('open');
-}
+function toggleCart(){document.getElementById('cart').classList.toggle('open');}
 </script>
-
 </body>
 </html>
