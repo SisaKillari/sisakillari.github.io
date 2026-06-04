@@ -3,27 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sisa Killari</title>
+<title>Sisa Killari v2.3</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,serif;background:#f1f4ef;color:#5b6b59}
-nav{position:sticky;top:0;background:#faf9f6;padding:12px;display:flex;justify-content:center;gap:15px;box-shadow:0 2px 10px rgba(0,0,0,.08);z-index:1000}
-nav a{text-decoration:none;color:#5b6b59;font-weight:bold;font-size:.95rem}
-.hero{text-align:center;padding:35px 15px}
-.logo{width:180px;max-width:90%}
-h1{font-size:2.8rem;margin:15px 0}
-.subtitulo{font-size:1.2rem;max-width:600px;margin:auto}
-.boton{display:inline-block;margin-top:20px;padding:12px 28px;background:#91a88c;color:#fff;text-decoration:none;border-radius:30px}
-.seccion{padding:50px 15px;text-align:center}
-.catalogo{width:100%;max-width:900px;height:auto;border-radius:20px;display:block;margin:auto}
+body{font-family:Georgia,serif;background:#f3f5f1;color:#5b6b59}
+nav{position:sticky;top:0;background:#faf9f6;padding:12px;display:flex;justify-content:center;gap:14px;z-index:1000}
+nav a{text-decoration:none;color:#5b6b59;font-weight:bold}
+.hero,.seccion{text-align:center;padding:40px 15px}
+.logo{width:180px}
+.catalogo{max-width:900px;width:100%;border-radius:20px}
 .productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1200px;margin:auto}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.card{background:#fff;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.08)}
 .card img{width:100%}
-.card h3{padding:15px}
-.card a{display:inline-block;margin-bottom:18px;padding:10px 22px;background:#91a88c;color:#fff;text-decoration:none;border-radius:25px}
-.whatsapp{position:fixed;bottom:18px;right:18px;width:60px;height:60px;border-radius:50%;background:#25D366;color:white;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(0,0,0,.25)}
-footer{text-align:center;padding:30px;background:#edf1eb;margin-top:40px}
+.add{position:absolute;top:10px;right:10px;width:42px;height:42px;border-radius:50%;border:none;background:#91a88c;color:#fff;font-size:26px}
+.float{position:fixed;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.25)}
+.cart{left:18px;bottom:18px;background:#6b7f67}
+.wa{right:18px;bottom:18px;background:#25D366}
+.about{max-width:900px;margin:auto;line-height:1.8}
 </style>
+<script>
+let carrito=[];
+
+function agregar(nombre,btn){
+ carrito.push(nombre);
+ document.getElementById("contador").innerText=carrito.length;
+ btn.innerHTML="✓";
+ setTimeout(()=>btn.innerHTML="+",1000);
+}
+
+function enviarPedido(){
+ if(carrito.length===0){
+   alert("Todavía no agregaste productos.");
+   return;
+ }
+ let mensaje="Hola, quiero pedir:%0A%0A";
+ carrito.forEach((p,i)=>mensaje+=(i+1)+". "+p+"%0A");
+ window.open("https://wa.me/5492215980355?text="+mensaje,"_blank");
+}
+</script>
 </head>
 <body>
 
@@ -31,42 +48,39 @@ footer{text-align:center;padding:30px;background:#edf1eb;margin-top:40px}
 <a href="#inicio">Inicio</a>
 <a href="#catalogo">Catálogo</a>
 <a href="#productos">Productos</a>
-<a href="#contacto">Pedido</a>
+<a href="#nosotros">Nosotros</a>
 </nav>
 
 <section class="hero" id="inicio">
 <img src="logo.png" class="logo">
 <h1>Sisa Killari</h1>
-<p class="subtitulo">Productos naturales elaborados artesanalmente</p>
-<a href="#catalogo" class="boton">Ver Catálogo</a>
+<p>Productos naturales elaborados artesanalmente</p>
 </section>
 
 <section class="seccion" id="catalogo">
-<h2>Catálogo</h2>
-<br>
+<h2>Catálogo</h2><br>
 <img src="catalogo.png" class="catalogo">
 </section>
 
 <section class="seccion" id="productos">
-<h2>Nuestros Productos</h2>
-<br><br>
+<h2>Productos</h2><br>
 <div class="productos">
-<div class="card"><img src="producto1.png"><h3>Crema Curativa</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
-<div class="card"><img src="producto2.png"><h3>Repelente Natural</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
-<div class="card"><img src="producto3.png"><h3>Agua Florida</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
-<div class="card"><img src="producto4.png"><h3>Desodorante Natural</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
+<div class="card"><button class="add" onclick="agregar('Crema Curativa',this)">+</button><img src="producto1.png"></div>
+<div class="card"><button class="add" onclick="agregar('Repelente Natural',this)">+</button><img src="producto2.png"></div>
+<div class="card"><button class="add" onclick="agregar('Agua Florida',this)">+</button><img src="producto3.png"></div>
+<div class="card"><button class="add" onclick="agregar('Desodorante Natural',this)">+</button><img src="producto4.png"></div>
 </div>
 </section>
 
-<section class="seccion" id="contacto">
-<h2>Contacto</h2>
-<br>
-<p>+54 9 221 598-0355</p>
+<section class="seccion" id="nosotros">
+<h2>Nuestra Esencia</h2>
+<div class="about">
+En Sisa Killari creamos productos inspirados en el conocimiento ancestral de las plantas y el cuidado consciente del cuerpo. Cada preparación es artesanal, respetuosa con la naturaleza y pensada para acompañar el bienestar cotidiano de manera simple, natural y armoniosa.
+</div>
 </section>
 
-<footer>Sisa Killari • Productos Naturales</footer>
-
-<a class="whatsapp" href="https://wa.me/5492215980355">💬</a>
+<a href="#" class="float cart" onclick="enviarPedido();return false;">🛒<span id="contador">0</span></a>
+<a href="https://wa.me/5492215980355" class="float wa">💬</a>
 
 </body>
 </html>
