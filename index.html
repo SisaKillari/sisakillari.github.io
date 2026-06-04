@@ -1,237 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sisa Killari</title>
 
 <style>
-
-html{
-scroll-behavior:smooth;
-}
-
 body{
 margin:0;
-font-family:Georgia, serif;
+font-family:Georgia,serif;
 background:#f8f6f1;
-color:#4f5f4f;
-line-height:1.6;
+color:#556555;
 }
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%, rgba(232,198,200,.25), transparent 25%),
-radial-gradient(circle at 80% 10%, rgba(168,181,162,.20), transparent 25%),
-radial-gradient(circle at 90% 80%, rgba(232,198,200,.15), transparent 20%);
-pointer-events:none;
-z-index:-1;
-}
-
 nav{
 position:sticky;
 top:0;
-background:#f8f6f1;
+background:white;
 padding:15px;
 display:flex;
 justify-content:center;
-gap:20px;
-box-shadow:0 2px 10px rgba(0,0,0,.05);
-z-index:100;
+gap:25px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
-
-nav a{
-text-decoration:none;
-color:#5E6E58;
-font-weight:bold;
-}
-
+nav a{color:#556555;text-decoration:none;font-weight:bold;}
 .hero{
 text-align:center;
-padding:40px 20px 60px;
+padding:40px 20px;
 background:#eef3ee;
 }
-
-.logo{
-width:260px;
-max-width:80%;
-margin-bottom:15px;
-}
-
-h1{
-font-size:3rem;
-margin:0;
-}
-
-.subtitulo{
-font-size:1.2rem;
-margin-top:10px;
-}
-
-.botones{
-margin-top:25px;
-}
-
-.boton{
+.hero img{max-width:260px;width:80%;}
+h1{font-size:4rem;margin:15px 0;}
+.btn{
 display:inline-block;
-padding:14px 22px;
-border-radius:14px;
+background:#89a483;
+color:white;
+padding:15px 25px;
+border-radius:15px;
 text-decoration:none;
-margin:6px;
 font-weight:bold;
 }
-
-.principal{
-background:#7f9b7d;
-color:white;
-}
-
-.secundario{
-background:white;
-border:1px solid #7f9b7d;
-color:#5E6E58;
-}
-
-section{
-padding:60px 25px;
-max-width:1100px;
-margin:auto;
-}
-
-h2{
-text-align:center;
-font-size:2.3rem;
-margin-bottom:35px;
-}
-
-.productos{
+.section{padding:50px 20px;max-width:1200px;margin:auto;}
+.catalogo{width:100%;border-radius:20px;}
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
+gap:20px;
 }
-
-.producto{
+.card{
 background:white;
-padding:25px;
+padding:15px;
 border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,.07);
-text-align:center;
-transition:.3s;
-}
-
-.producto:hover{
-transform:translateY(-5px);
-}
-
-.icono{
-font-size:2.5rem;
-margin-bottom:10px;
-}
-
-footer{
-background:#e7efe7;
-padding:30px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
 text-align:center;
 }
-
+.card img{width:100%;border-radius:15px;}
+.card button{
+background:#89a483;
+color:white;
+border:none;
+padding:12px;
+border-radius:12px;
+cursor:pointer;
+width:100%;
+}
+#carrito{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
 </style>
-
 </head>
-
 <body>
 
 <nav>
 <a href="#inicio">Inicio</a>
 <a href="#productos">Productos</a>
-<a href="#nosotros">Nosotros</a>
+<a href="#pedido">Pedido</a>
 </nav>
 
-<header class="hero" id="inicio">
-
-<img
-src="file_00000000ef7471f59f26ffcbbdcc82bf.png"
-alt="Sisa Killari"
-class="logo">
-
+<section class="hero" id="inicio">
+<img src="logo.png" alt="Logo">
 <h1>Sisa Killari</h1>
-
-<p class="subtitulo">
-Productos naturales elaborados artesanalmente
-</p>
-
-<div class="botones">
-
-<a href="#productos" class="boton principal">
-Ver Catálogo
-</a>
-
-<a href="#nosotros" class="boton secundario">
-Nuestra Esencia
-</a>
-
-</div>
-
-</header>
-
-<section id="nosotros">
-
-<h2>Nuestra Esencia</h2>
-
-<p style="text-align:center;max-width:800px;margin:auto;">
-Sisa Killari nace del encuentro entre la naturaleza, el cuidado consciente y la sabiduría de las plantas.
-Cada producto busca acompañar pequeños rituales cotidianos de bienestar, armonía y conexión.
-</p>
-
+<p>Productos naturales elaborados artesanalmente</p>
+<a class="btn" href="#productos">Ver Productos</a>
 </section>
 
-<section id="productos">
+<section class="section">
+<img src="catalogo-1.jpg" class="catalogo">
+</section>
 
+<section class="section" id="productos">
 <h2>Nuestros Productos</h2>
 
-<div class="productos">
+<div class="grid">
 
-<div class="producto">
-<div class="icono">🧴</div>
-<h3>Cremas</h3>
-<p>Cuidado natural para la piel.</p>
+<div class="card">
+<img src="producto1.png">
+<h3>Repelente Natural</h3>
+<button onclick="agregar('Repelente Natural')">Agregar</button>
 </div>
 
-<div class="producto">
-<div class="icono">💧</div>
+<div class="card">
+<img src="producto2.png">
 <h3>Agua Florida</h3>
-<p>Aromas para bienestar y armonía.</p>
+<button onclick="agregar('Agua Florida')">Agregar</button>
 </div>
 
-<div class="producto">
-<div class="icono">🌿</div>
-<h3>Desodorantes</h3>
-<p>Alternativas naturales para el cuidado diario.</p>
+<div class="card">
+<img src="producto3.png">
+<h3>Crema Curativa</h3>
+<button onclick="agregar('Crema Curativa')">Agregar</button>
 </div>
 
-<div class="producto">
-<div class="icono">🍃</div>
-<h3>Limpieza Bucal</h3>
-<p>Higiene consciente y natural.</p>
+<div class="card">
+<img src="producto4.png">
+<h3>Desodorante Natural</h3>
+<button onclick="agregar('Desodorante Natural')">Agregar</button>
 </div>
 
 </div>
-
 </section>
 
-<footer>
+<section class="section" id="pedido">
+<h2>Mi Pedido</h2>
+<div id="carrito">
+<p>No hay productos agregados.</p>
+</div>
+<br>
+<button class="btn" onclick="enviarWhatsapp()">Enviar pedido por WhatsApp</button>
+</section>
 
-<p>🌿 Sisa Killari · Productos Naturales 🌿</p>
+<a class="whatsapp" href="https://wa.me/5492215980355" target="_blank">WhatsApp</a>
 
-</footer>
+<script>
+let carrito=[];
+
+function agregar(producto){
+carrito.push(producto);
+mostrar();
+}
+
+function mostrar(){
+let html="";
+for(let item of carrito){
+html+="• "+item+"<br>";
+}
+document.getElementById("carrito").innerHTML=html||"No hay productos agregados.";
+}
+
+function enviarWhatsapp(){
+let mensaje="Hola Sisa Killari 🌿%0A%0AQuiero realizar el siguiente pedido:%0A";
+for(let item of carrito){
+mensaje+="• "+item+"%0A";
+}
+window.open("https://wa.me/5492215980355?text="+mensaje,"_blank");
+}
+</script>
 
 </body>
 </html>
