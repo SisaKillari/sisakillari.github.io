@@ -3,23 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sisa Killari v2.3</title>
+<title>Sisa Killari v2.4 Premium</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,serif;background:#f3f5f1;color:#5b6b59}
-nav{position:sticky;top:0;background:#faf9f6;padding:12px;display:flex;justify-content:center;gap:14px;z-index:1000}
-nav a{text-decoration:none;color:#5b6b59;font-weight:bold}
-.hero,.seccion{text-align:center;padding:40px 15px}
-.logo{width:180px}
-.catalogo{max-width:900px;width:100%;border-radius:20px}
-.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1200px;margin:auto}
-.card{background:#fff;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.card img{width:100%}
-.add{position:absolute;top:10px;right:10px;width:42px;height:42px;border-radius:50%;border:none;background:#91a88c;color:#fff;font-size:26px}
-.float{position:fixed;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.25)}
-.cart{left:18px;bottom:18px;background:#6b7f67}
-.wa{right:18px;bottom:18px;background:#25D366}
-.about{max-width:900px;margin:auto;line-height:1.8}
+body{
+font-family:Georgia,serif;
+background:linear-gradient(180deg,#dce8d7,#f5f0e8,#d7e6d2);
+color:#4f5f4e;
+}
+nav{
+position:sticky;top:0;
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(8px);
+padding:10px;
+display:flex;
+justify-content:center;
+gap:25px;
+}
+nav a{text-decoration:none;color:#4f5f4e;font-weight:bold}
+.hero{text-align:center;padding:25px 15px}
+.logo{width:170px}
+.catalogo{width:100%;max-width:900px;border-radius:20px;display:block;margin:auto}
+.seccion{text-align:center;padding:30px 15px}
+.productos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+max-width:1200px;
+margin:auto;
+}
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.25s;
+}
+.card img{width:100%;display:block}
+.flash{
+animation:flashGreen .4s;
+}
+@keyframes flashGreen{
+0%{box-shadow:0 0 0 rgba(0,255,0,0)}
+50%{box-shadow:0 0 30px #79d879}
+100%{box-shadow:0 0 0 rgba(0,255,0,0)}
+}
+.add{
+position:absolute;
+top:10px;
+right:10px;
+width:42px;
+height:42px;
+border:none;
+border-radius:50%;
+background:#7f9d78;
+color:white;
+font-size:28px;
+cursor:pointer;
+}
+.float{
+position:fixed;
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:white;
+box-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+.cart{
+left:18px;
+bottom:18px;
+background:#6a7f67;
+font-size:22px;
+}
+.wa{
+right:18px;
+bottom:18px;
+background:#25D366;
+font-size:26px;
+}
+.about{
+max-width:900px;
+margin:auto;
+line-height:1.8;
+font-size:1.15rem;
+padding:10px;
+}
 </style>
 <script>
 let carrito=[];
@@ -28,59 +101,75 @@ function agregar(nombre,btn){
  carrito.push(nombre);
  document.getElementById("contador").innerText=carrito.length;
  btn.innerHTML="✓";
- setTimeout(()=>btn.innerHTML="+",1000);
+ btn.parentElement.classList.add("flash");
+ setTimeout(()=>{
+   btn.innerHTML="+";
+   btn.parentElement.classList.remove("flash");
+ },900);
 }
 
-function enviarPedido(){
+function pedido(){
  if(carrito.length===0){
    alert("Todavía no agregaste productos.");
    return;
  }
- let mensaje="Hola, quiero pedir:%0A%0A";
- carrito.forEach((p,i)=>mensaje+=(i+1)+". "+p+"%0A");
- window.open("https://wa.me/5492215980355?text="+mensaje,"_blank");
+ let txt="Hola, quiero pedir:%0A%0A";
+ carrito.forEach((p,i)=>txt+=(i+1)+". "+p+"%0A");
+ window.open("https://wa.me/5492215980355?text="+txt,"_blank");
 }
 </script>
 </head>
 <body>
 
 <nav>
-<a href="#inicio">Inicio</a>
 <a href="#catalogo">Catálogo</a>
-<a href="#productos">Productos</a>
 <a href="#nosotros">Nosotros</a>
 </nav>
 
-<section class="hero" id="inicio">
+<section class="hero">
 <img src="logo.png" class="logo">
-<h1>Sisa Killari</h1>
-<p>Productos naturales elaborados artesanalmente</p>
 </section>
 
 <section class="seccion" id="catalogo">
-<h2>Catálogo</h2><br>
 <img src="catalogo.png" class="catalogo">
 </section>
 
-<section class="seccion" id="productos">
-<h2>Productos</h2><br>
+<section class="seccion">
 <div class="productos">
-<div class="card"><button class="add" onclick="agregar('Crema Curativa',this)">+</button><img src="producto1.png"></div>
-<div class="card"><button class="add" onclick="agregar('Repelente Natural',this)">+</button><img src="producto2.png"></div>
-<div class="card"><button class="add" onclick="agregar('Agua Florida',this)">+</button><img src="producto3.png"></div>
-<div class="card"><button class="add" onclick="agregar('Desodorante Natural',this)">+</button><img src="producto4.png"></div>
+
+<div class="card">
+<button class="add" onclick="agregar('Crema Curativa',this)">+</button>
+<img src="producto1.png">
+</div>
+
+<div class="card">
+<button class="add" onclick="agregar('Repelente Natural',this)">+</button>
+<img src="producto2.png">
+</div>
+
+<div class="card">
+<button class="add" onclick="agregar('Agua Florida',this)">+</button>
+<img src="producto3.png">
+</div>
+
+<div class="card">
+<button class="add" onclick="agregar('Desodorante Natural',this)">+</button>
+<img src="producto4.png">
+</div>
+
 </div>
 </section>
 
 <section class="seccion" id="nosotros">
-<h2>Nuestra Esencia</h2>
 <div class="about">
-En Sisa Killari creamos productos inspirados en el conocimiento ancestral de las plantas y el cuidado consciente del cuerpo. Cada preparación es artesanal, respetuosa con la naturaleza y pensada para acompañar el bienestar cotidiano de manera simple, natural y armoniosa.
+<h2>Nuestra Esencia</h2><br>
+En Sisa Killari elaboramos productos inspirados en el conocimiento ancestral de las plantas, el cuidado consciente del cuerpo y el respeto por la naturaleza. Cada preparación nace de una búsqueda simple: ofrecer bienestar cotidiano mediante ingredientes naturales, procesos artesanales y una conexión profunda con la sabiduría de la tierra.
 </div>
 </section>
 
-<a href="#" class="float cart" onclick="enviarPedido();return false;">🛒<span id="contador">0</span></a>
-<a href="https://wa.me/5492215980355" class="float wa">💬</a>
+<a href="#" class="float cart" onclick="pedido();return false;">🛒 <span id="contador">0</span></a>
+
+<a href="https://wa.me/5492215980355" class="float wa">☎</a>
 
 </body>
 </html>
