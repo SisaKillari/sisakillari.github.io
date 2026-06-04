@@ -3,121 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sisa Killari v2.4 Premium</title>
+<title>Sisa Killari v2.5 Naturaleza</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
 font-family:Georgia,serif;
-background:linear-gradient(180deg,#dce8d7,#f5f0e8,#d7e6d2);
-color:#4f5f4e;
+color:#eef3e8;
+background:
+linear-gradient(rgba(40,70,40,.35),rgba(40,70,40,.35)),
+url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e');
+background-size:cover;
+background-attachment:fixed;
 }
+
 nav{
-position:sticky;top:0;
-background:rgba(255,255,255,.75);
+position:sticky;
+top:0;
+background:rgba(20,40,20,.55);
 backdrop-filter:blur(8px);
-padding:10px;
+padding:14px;
 display:flex;
 justify-content:center;
-gap:25px;
+gap:30px;
+z-index:999;
 }
-nav a{text-decoration:none;color:#4f5f4e;font-weight:bold}
-.hero{text-align:center;padding:25px 15px}
-.logo{width:170px}
-.catalogo{width:100%;max-width:900px;border-radius:20px;display:block;margin:auto}
-.seccion{text-align:center;padding:30px 15px}
-.productos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-max-width:1200px;
-margin:auto;
-}
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-position:relative;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-transition:.25s;
-}
-.card img{width:100%;display:block}
-.flash{
-animation:flashGreen .4s;
-}
-@keyframes flashGreen{
-0%{box-shadow:0 0 0 rgba(0,255,0,0)}
-50%{box-shadow:0 0 30px #79d879}
-100%{box-shadow:0 0 0 rgba(0,255,0,0)}
-}
-.add{
-position:absolute;
-top:10px;
-right:10px;
-width:42px;
-height:42px;
-border:none;
-border-radius:50%;
-background:#7f9d78;
+
+nav a{
 color:white;
-font-size:28px;
-cursor:pointer;
+text-decoration:none;
+font-weight:bold;
 }
+
+.hero{
+text-align:center;
+padding:40px 20px;
+}
+
+.logo{
+width:180px;
+border-radius:20px;
+}
+
+.catalogo-box{
+max-width:1000px;
+margin:20px auto;
+padding:20px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border-radius:30px;
+}
+
+.catalogo-box img{
+width:100%;
+border-radius:20px;
+}
+
+.productos{
+max-width:1000px;
+margin:20px auto;
+display:grid;
+gap:20px;
+padding:20px;
+}
+
+.producto{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(8px);
+border-radius:25px;
+overflow:hidden;
+}
+
+.producto img{
+width:100%;
+display:block;
+}
+
+.titulo{
+text-align:center;
+font-size:3rem;
+margin:20px 0;
+}
+
+.esencia{
+max-width:900px;
+margin:40px auto;
+padding:30px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(8px);
+border-radius:25px;
+line-height:1.8;
+}
+
 .float{
 position:fixed;
-width:58px;
-height:58px;
+bottom:20px;
+width:60px;
+height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 text-decoration:none;
-color:white;
-box-shadow:0 4px 15px rgba(0,0,0,.25);
+font-size:28px;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
+
 .cart{
-left:18px;
-bottom:18px;
-background:#6a7f67;
-font-size:22px;
+left:20px;
+background:#5f7f5f;
+color:white;
 }
+
 .wa{
-right:18px;
-bottom:18px;
+right:20px;
 background:#25D366;
-font-size:26px;
-}
-.about{
-max-width:900px;
-margin:auto;
-line-height:1.8;
-font-size:1.15rem;
-padding:10px;
+color:white;
 }
 </style>
-<script>
-let carrito=[];
-
-function agregar(nombre,btn){
- carrito.push(nombre);
- document.getElementById("contador").innerText=carrito.length;
- btn.innerHTML="✓";
- btn.parentElement.classList.add("flash");
- setTimeout(()=>{
-   btn.innerHTML="+";
-   btn.parentElement.classList.remove("flash");
- },900);
-}
-
-function pedido(){
- if(carrito.length===0){
-   alert("Todavía no agregaste productos.");
-   return;
- }
- let txt="Hola, quiero pedir:%0A%0A";
- carrito.forEach((p,i)=>txt+=(i+1)+". "+p+"%0A");
- window.open("https://wa.me/5492215980355?text="+txt,"_blank");
-}
-</script>
 </head>
 <body>
 
@@ -128,48 +131,29 @@ function pedido(){
 
 <section class="hero">
 <img src="logo.png" class="logo">
+<h1 style="margin-top:15px;">Sisa Killari</h1>
 </section>
 
-<section class="seccion" id="catalogo">
-<img src="catalogo.png" class="catalogo">
+<section id="catalogo" class="catalogo-box">
+<img src="catalogo.png">
 </section>
 
-<section class="seccion">
-<div class="productos">
+<h2 class="titulo">Nuestros Productos</h2>
 
-<div class="card">
-<button class="add" onclick="agregar('Crema Curativa',this)">+</button>
-<img src="producto1.png">
-</div>
-
-<div class="card">
-<button class="add" onclick="agregar('Repelente Natural',this)">+</button>
-<img src="producto2.png">
-</div>
-
-<div class="card">
-<button class="add" onclick="agregar('Agua Florida',this)">+</button>
-<img src="producto3.png">
-</div>
-
-<div class="card">
-<button class="add" onclick="agregar('Desodorante Natural',this)">+</button>
-<img src="producto4.png">
-</div>
-
-</div>
+<section class="productos">
+<div class="producto"><img src="producto1.png"></div>
+<div class="producto"><img src="producto2.png"></div>
+<div class="producto"><img src="producto3.png"></div>
+<div class="producto"><img src="producto4.png"></div>
 </section>
 
-<section class="seccion" id="nosotros">
-<div class="about">
+<section id="nosotros" class="esencia">
 <h2>Nuestra Esencia</h2><br>
-En Sisa Killari elaboramos productos inspirados en el conocimiento ancestral de las plantas, el cuidado consciente del cuerpo y el respeto por la naturaleza. Cada preparación nace de una búsqueda simple: ofrecer bienestar cotidiano mediante ingredientes naturales, procesos artesanales y una conexión profunda con la sabiduría de la tierra.
-</div>
+En Sisa Killari unimos naturaleza, conocimiento ancestral y elaboración artesanal. Buscamos crear productos simples, nobles y efectivos para acompañar el bienestar cotidiano, respetando tanto el cuerpo como el entorno natural.
 </section>
 
-<a href="#" class="float cart" onclick="pedido();return false;">🛒 <span id="contador">0</span></a>
-
-<a href="https://wa.me/5492215980355" class="float wa">☎</a>
+<a class="float cart" href="#">🛒</a>
+<a class="float wa" href="https://wa.me/5492215980355">✆</a>
 
 </body>
 </html>
