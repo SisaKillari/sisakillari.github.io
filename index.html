@@ -5,94 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sisa Killari</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Georgia,serif;background:url('fondo.png') center/cover fixed no-repeat}
-.overlay{background:rgba(245,242,235,.45);min-height:100vh}
-.logo{display:block;width:100vw;max-width:100vw;margin:0 auto}
-.grid{display:grid;grid-template-columns:1fr;gap:12px;padding:0 10px 30px;max-width:700px;margin:auto}
-.card{position:relative;border-radius:22px;overflow:hidden;background:rgba(255,255,255,.7)}
-.card img{width:100%;display:block}
-.infoBtn,.addBtn{
-position:absolute;bottom:10px;width:42px;height:42px;border:none;border-radius:50%;
-color:#fff;font-size:22px
-}
-.infoBtn{left:10px;background:#4c6f8f}
-.addBtn{right:10px;background:#6d9865}
-.cartbtn{position:fixed;top:12px;right:12px;width:54px;height:54px;border-radius:50%;background:#6d9865;color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;z-index:1000}
-.badge{position:absolute;top:-3px;right:-3px;background:#d33;border-radius:50%;padding:2px 6px;font-size:11px;color:#fff}
-.wa{position:fixed;bottom:14px;right:14px;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center}
-.sidebar,.infoPanel{position:fixed;top:0;right:-340px;width:320px;height:100%;background:#fff;padding:18px;overflow:auto;transition:.3s;z-index:1100}
-.open{right:0}
-.row{display:flex;justify-content:space-between;margin:8px 0}
-select{width:100%;padding:8px;margin:8px 0}
-.btn{display:block;text-align:center;background:#6d9865;color:#fff;text-decoration:none;padding:12px;border-radius:10px;margin-top:12px}
-.close{float:right;border:none;padding:6px 10px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:url('fondo.png') center center fixed;background-size:cover;color:white}
+.overlay{background:rgba(0,0,0,.65);min-height:100vh;padding-bottom:50px}
+.portada{width:100%;display:block}
+h1,h2,h3{text-align:center;margin:20px 0}
+.nuestra-esencia,.carrito,.info{padding:20px;margin:20px;background:rgba(255,255,255,.1);border-radius:15px}
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px}
+.producto{background:rgba(255,255,255,.1);border-radius:15px;padding:15px;text-align:center}
+.producto img{width:100%;border-radius:10px}
+button{background:#25D366;border:none;padding:12px;color:#fff;font-weight:bold;border-radius:8px;cursor:pointer;margin-top:10px}
+input,select{width:100%;padding:10px;margin-top:8px;border-radius:8px;border:none}
+.animacion{animation:agregado .5s ease}
+@keyframes agregado{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.whatsapp-flotante{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="overlay">
-<img src="logo.png" class="logo">
+<img src="portada.png" class="portada">
+<section class="nuestra-esencia">
+<h2>🌙 Nuestra Esencia</h2>
+<p>Sisa Killari significa Flor de Luna. Creamos productos inspirados en la naturaleza, la armonía y el bienestar.</p>
+</section>
 
-<div class="grid">
-<div class="card"><img src="producto1.png"><button class="infoBtn" onclick="showInfo('Crema Curativa','Elaborada con ingredientes naturales para acompañar el cuidado diario de la piel.')">ℹ</button><button class="addBtn" onclick="add('Crema Curativa')">+</button></div>
-<div class="card"><img src="producto2.png"><button class="infoBtn" onclick="showInfo('Repelente Natural','Fórmula vegetal para ayudar a mantener alejados los insectos.')">ℹ</button><button class="addBtn" onclick="add('Repelente Natural')">+</button></div>
-<div class="card"><img src="producto3.png"><button class="infoBtn" onclick="showInfo('Agua Florida','Preparación aromática inspirada en tradiciones ancestrales.')">ℹ</button><button class="addBtn" onclick="add('Agua Florida')">+</button></div>
-<div class="card"><img src="producto4.png"><button class="infoBtn" onclick="showInfo('Desodorante Natural','Alternativa natural para el cuidado cotidiano.')">ℹ</button><button class="addBtn" onclick="add('Desodorante Natural')">+</button></div>
+<h2>✨ Productos</h2>
+<div class="productos">
+<div class="producto"><img src="producto1.png"><h3>Producto 1</h3><p>$10000</p><button onclick="agregar('Producto 1',10000,this)">Agregar</button></div>
+<div class="producto"><img src="producto2.png"><h3>Producto 2</h3><p>$12000</p><button onclick="agregar('Producto 2',12000,this)">Agregar</button></div>
+<div class="producto"><img src="producto3.png"><h3>Producto 3</h3><p>$15000</p><button onclick="agregar('Producto 3',15000,this)">Agregar</button></div>
+<div class="producto"><img src="producto4.png"><h3>Producto 4</h3><p>$18000</p><button onclick="agregar('Producto 4',18000,this)">Agregar</button></div>
 </div>
-</div>
 
-<a href="#" class="cartbtn" onclick="toggleCart();return false;">🛒<span id="count" class="badge">0</span></a>
-<a href="https://wa.me/5492215980355" class="wa">💬</a>
-
-<div id="cart" class="sidebar">
-<h2>Tu Pedido</h2>
-<div id="items"></div>
-
-<label>Provincia</label>
-<select id="provincia" onchange="provinciaChanged()">
-<option>CABA</option><option>Buenos Aires</option><option>Catamarca</option><option>Chaco</option><option>Chubut</option><option>Córdoba</option><option>Corrientes</option><option>Entre Ríos</option><option>Formosa</option><option>Jujuy</option><option>La Pampa</option><option>La Rioja</option><option>Mendoza</option><option>Misiones</option><option>Neuquén</option><option>Río Negro</option><option>Salta</option><option>San Juan</option><option>San Luis</option><option>Santa Cruz</option><option>Santa Fe</option><option>Santiago del Estero</option><option>Tierra del Fuego</option><option>Tucumán</option>
+<section class="carrito">
+<h2>🛒 Carrito</h2>
+<ul id="listaCarrito"></ul>
+<h3>Total: $<span id="total">0</span></h3>
+<input type="text" id="nombre" placeholder="Nombre">
+<select id="provincia">
+<option>Buenos Aires</option><option>CABA</option><option>Córdoba</option>
+<option>Santa Fe</option><option>Mendoza</option>
 </select>
+<input type="text" id="localidad" placeholder="Localidad">
+<button onclick="enviarWhatsApp()">Finalizar por WhatsApp</button>
+</section>
 
-<div id="locWrap" style="display:none">
-<label>Localidad</label>
-<select id="localidad" onchange="render()">
-<option>Avellaneda</option><option>Bahía Blanca</option><option>Banfield</option><option>Berazategui</option><option>Berisso</option><option>Campana</option><option>Castelar</option><option>Chivilcoy</option><option>City Bell</option><option>Ensenada</option><option>Escobar</option><option>Ezpeleta</option><option>Florida</option><option>General Rodríguez</option><option>Gonnet</option><option>Haedo</option><option>Ituzaingó</option><option>José C. Paz</option><option>Junín</option><option>La Plata</option><option>Lanús</option><option>Lomas de Zamora</option><option>Luján</option><option>Malvinas Argentinas</option><option>Mar del Plata</option><option>Martínez</option><option>Merlo</option><option>Moreno</option><option>Morón</option><option>Necochea</option><option>Olavarría</option><option>Olivos</option><option>Pergamino</option><option>Pilar</option><option>Quilmes</option><option>Ramos Mejía</option><option>Ringuelet</option><option>San Fernando</option><option>San Isidro</option><option>San Miguel</option><option>Tandil</option><option>Temperley</option><option>Tigre</option><option>Tolosa</option><option>Vicente López</option><option>Villa Elisa</option><option>Zárate</option>
-</select>
+<section class="info">
+<h2>ℹ️ Información</h2>
+<p>Envíos a todo el país · Atención personalizada · Productos seleccionados con amor.</p>
+</section>
 </div>
 
-<a id="pedido" class="btn" target="_blank">Hacer Pedido</a>
-</div>
-
-<div id="info" class="infoPanel">
-<button class="close" onclick="closeInfo()">✕</button>
-<h2 id="infoTitle"></h2><br>
-<p id="infoText"></p>
-</div>
+<a class="whatsapp-flotante" href="#">💬</a>
 
 <script>
-let cart={};
-function add(n){cart[n]=(cart[n]||0)+1;render();}
-function change(n,v){cart[n]+=v;if(cart[n]<=0) delete cart[n];render();}
-function toggleCart(){document.getElementById('cart').classList.toggle('open');}
-function provinciaChanged(){
- document.getElementById('locWrap').style.display =
- document.getElementById('provincia').value==='Buenos Aires'?'block':'none';
- render();
+let carrito=[],total=0;
+function agregar(nombre,precio,b){
+carrito.push({nombre,precio}); total+=precio;
+document.getElementById('listaCarrito').innerHTML += `<li>${nombre} - $${precio}</li>`;
+document.getElementById('total').innerText=total;
+b.classList.add('animacion'); setTimeout(()=>b.classList.remove('animacion'),500);
 }
-function render(){
-document.getElementById('count').innerText=Object.values(cart).reduce((a,b)=>a+b,0);
-let h='';
-for(let k in cart){h+=`<div class="row">${k}<span><button onclick="change('${k}',-1)">-</button> ${cart[k]} <button onclick="change('${k}',1)">+</button></span></div>`;}
-document.getElementById('items').innerHTML=h;
-let txt='Hola 🌿%0A%0AQuiero estos productos:%0A';
-for(let k in cart){txt+='• '+k+' x'+cart[k]+'%0A';}
-txt+='%0ATe escribo desde:%0AProvincia: '+provincia.value;
-if(provincia.value==='Buenos Aires') txt+='%0ALocalidad: '+localidad.value;
-pedido.href='https://wa.me/5492215980355?text='+txt;
+function enviarWhatsApp(){
+let mensaje='Hola Sisa Killari%0A';
+carrito.forEach(i=>mensaje+=i.nombre+' - $'+i.precio+'%0A');
+window.open('https://wa.me/?text='+mensaje,'_blank');
 }
-function showInfo(t,d){infoTitle.innerText=t;infoText.innerText=d;info.classList.add('open');}
-function closeInfo(){info.classList.remove('open');}
-render();
 </script>
 </body>
 </html>
