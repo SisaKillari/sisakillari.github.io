@@ -1,87 +1,237 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sisa Killari</title><style>
+
+<title>Sisa Killari</title>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
 font-family:Georgia, serif;
 background:#f8f6f1;
 color:#4f5f4f;
+line-height:1.6;
 }
 
-header{
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%, rgba(232,198,200,.25), transparent 25%),
+radial-gradient(circle at 80% 10%, rgba(168,181,162,.20), transparent 25%),
+radial-gradient(circle at 90% 80%, rgba(232,198,200,.15), transparent 20%);
+pointer-events:none;
+z-index:-1;
+}
+
+nav{
+position:sticky;
+top:0;
+background:#f8f6f1;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:20px;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+z-index:100;
+}
+
+nav a{
+text-decoration:none;
+color:#5E6E58;
+font-weight:bold;
+}
+
+.hero{
 text-align:center;
-padding:60px 20px;
-background:#e7efe7;
+padding:40px 20px 60px;
+background:#eef3ee;
+}
+
+.logo{
+width:260px;
+max-width:80%;
+margin-bottom:15px;
 }
 
 h1{
 font-size:3rem;
-margin-bottom:10px;
+margin:0;
 }
 
 .subtitulo{
 font-size:1.2rem;
+margin-top:10px;
+}
+
+.botones{
+margin-top:25px;
+}
+
+.boton{
+display:inline-block;
+padding:14px 22px;
+border-radius:14px;
+text-decoration:none;
+margin:6px;
+font-weight:bold;
+}
+
+.principal{
+background:#7f9b7d;
+color:white;
+}
+
+.secundario{
+background:white;
+border:1px solid #7f9b7d;
+color:#5E6E58;
 }
 
 section{
-padding:50px 20px;
-max-width:1000px;
+padding:60px 25px;
+max-width:1100px;
 margin:auto;
 }
 
 h2{
 text-align:center;
-margin-bottom:30px;
+font-size:2.3rem;
+margin-bottom:35px;
 }
 
 .productos{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:25px;
 }
 
 .producto{
 background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 2px 8px rgba(0,0,0,0.08);
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.07);
 text-align:center;
+transition:.3s;
 }
 
-.boton{
-display:inline-block;
-background:#7f9b7d;
-color:white;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-margin-top:10px;
+.producto:hover{
+transform:translateY(-5px);
+}
+
+.icono{
+font-size:2.5rem;
+margin-bottom:10px;
 }
 
 footer{
-text-align:center;
-padding:30px;
 background:#e7efe7;
+padding:30px;
+text-align:center;
 }
 
-</style></head><body><header><h1>Sisa Killari</h1><p class="subtitulo">
-Productos naturales para el bienestar cotidiano
-</p></header><section><h2>Nuestra Esencia</h2><p>
-En Sisa Killari elaboramos productos naturales inspirados en el conocimiento de las plantas y el cuidado consciente. Cada preparación busca acompañar el bienestar diario de manera simple, artesanal y respetuosa con la naturaleza.
-</p></section><section><h2>Nuestros Productos</h2><div class="productos"><div class="producto">
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#nosotros">Nosotros</a>
+</nav>
+
+<header class="hero" id="inicio">
+
+<img
+src="file_00000000ef7471f59f26ffcbbdcc82bf.png"
+alt="Sisa Killari"
+class="logo">
+
+<h1>Sisa Killari</h1>
+
+<p class="subtitulo">
+Productos naturales elaborados artesanalmente
+</p>
+
+<div class="botones">
+
+<a href="#productos" class="boton principal">
+Ver Catálogo
+</a>
+
+<a href="#nosotros" class="boton secundario">
+Nuestra Esencia
+</a>
+
+</div>
+
+</header>
+
+<section id="nosotros">
+
+<h2>Nuestra Esencia</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;">
+Sisa Killari nace del encuentro entre la naturaleza, el cuidado consciente y la sabiduría de las plantas.
+Cada producto busca acompañar pequeños rituales cotidianos de bienestar, armonía y conexión.
+</p>
+
+</section>
+
+<section id="productos">
+
+<h2>Nuestros Productos</h2>
+
+<div class="productos">
+
+<div class="producto">
+<div class="icono">🧴</div>
 <h3>Cremas</h3>
 <p>Cuidado natural para la piel.</p>
-</div><div class="producto">
+</div>
+
+<div class="producto">
+<div class="icono">💧</div>
 <h3>Agua Florida</h3>
 <p>Aromas para bienestar y armonía.</p>
-</div><div class="producto">
+</div>
+
+<div class="producto">
+<div class="icono">🌿</div>
 <h3>Desodorantes</h3>
 <p>Alternativas naturales para el cuidado diario.</p>
-</div><div class="producto">
+</div>
+
+<div class="producto">
+<div class="icono">🍃</div>
 <h3>Limpieza Bucal</h3>
 <p>Higiene consciente y natural.</p>
-</div></div></section><footer><p>Sisa Killari · Productos Naturales</p></footer></body>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>🌿 Sisa Killari · Productos Naturales 🌿</p>
+
+</footer>
+
+</body>
 </html>
