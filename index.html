@@ -5,30 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sisa Killari</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:Georgia,serif;background:#f5f3ee;color:#5b6b59;}
-nav{position:sticky;top:0;background:#faf9f6;padding:18px;display:flex;justify-content:center;gap:30px;box-shadow:0 2px 10px rgba(0,0,0,.08);z-index:1000;}
-nav a{text-decoration:none;color:#5b6b59;font-weight:bold;font-size:1.1rem;}
-.hero{background:#edf1eb;padding:50px 20px;text-align:center;}
-.logo{width:250px;max-width:90%;display:block;margin:auto;}
-h1{font-size:4rem;margin-top:20px;}
-.subtitulo{font-size:1.4rem;max-width:700px;margin:20px auto;}
-.boton{display:inline-block;background:#91a88c;color:white;padding:15px 35px;border-radius:40px;text-decoration:none;font-weight:bold;margin-top:20px;}
-.seccion{padding:70px 20px;text-align:center;}
-.seccion h2{font-size:3.5rem;margin-bottom:30px;}
-.catalogo{width:100%;max-width:1000px;height:auto;display:block;margin:auto;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,.15);}
-.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;max-width:1200px;margin:auto;}
-.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08);}
-.card img{width:100%;display:block;}
-.card h3{padding:15px;font-size:1.5rem;}
-.card a{display:inline-block;margin-bottom:20px;padding:12px 25px;background:#91a88c;color:white;border-radius:30px;text-decoration:none;font-weight:bold;}
-.nosotros{max-width:850px;margin:auto;font-size:1.3rem;line-height:1.8;}
-footer{background:#edf1eb;padding:30px;text-align:center;margin-top:50px;}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:16px 28px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 5px 15px rgba(0,0,0,.25);z-index:999;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,serif;background:#f1f4ef;color:#5b6b59}
+nav{position:sticky;top:0;background:#faf9f6;padding:12px;display:flex;justify-content:center;gap:15px;box-shadow:0 2px 10px rgba(0,0,0,.08);z-index:1000}
+nav a{text-decoration:none;color:#5b6b59;font-weight:bold;font-size:.95rem}
+.hero{text-align:center;padding:35px 15px}
+.logo{width:180px;max-width:90%}
+h1{font-size:2.8rem;margin:15px 0}
+.subtitulo{font-size:1.2rem;max-width:600px;margin:auto}
+.boton{display:inline-block;margin-top:20px;padding:12px 28px;background:#91a88c;color:#fff;text-decoration:none;border-radius:30px}
+.seccion{padding:50px 15px;text-align:center}
+.catalogo{width:100%;max-width:900px;height:auto;border-radius:20px;display:block;margin:auto}
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1200px;margin:auto}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.card img{width:100%}
+.card h3{padding:15px}
+.card a{display:inline-block;margin-bottom:18px;padding:10px 22px;background:#91a88c;color:#fff;text-decoration:none;border-radius:25px}
+.whatsapp{position:fixed;bottom:18px;right:18px;width:60px;height:60px;border-radius:50%;background:#25D366;color:white;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 15px rgba(0,0,0,.25)}
+footer{text-align:center;padding:30px;background:#edf1eb;margin-top:40px}
 </style>
 </head>
 <body>
+
 <nav>
 <a href="#inicio">Inicio</a>
 <a href="#catalogo">Catálogo</a>
@@ -45,35 +43,30 @@ footer{background:#edf1eb;padding:30px;text-align:center;margin-top:50px;}
 
 <section class="seccion" id="catalogo">
 <h2>Catálogo</h2>
+<br>
 <img src="catalogo.png" class="catalogo">
 </section>
 
 <section class="seccion" id="productos">
 <h2>Nuestros Productos</h2>
+<br><br>
 <div class="productos">
-<div class="card"><img src="producto1.png"><h3>Crema Curativa</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
-<div class="card"><img src="producto2.png"><h3>Repelente Natural</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
-<div class="card"><img src="producto3.png"><h3>Agua Florida</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
-<div class="card"><img src="producto4.png"><h3>Desodorante Natural</h3><a href="https://wa.me/5492215980355">Consultar</a></div>
-</div>
-</section>
-
-<section class="seccion">
-<h2>Nuestra Esencia</h2>
-<div class="nosotros">
-En Sisa Killari elaboramos productos naturales inspirados en el conocimiento ancestral de las plantas y el bienestar consciente. Cada producto es elaborado artesanalmente con dedicación, amor y respeto por la naturaleza.
+<div class="card"><img src="producto1.png"><h3>Crema Curativa</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
+<div class="card"><img src="producto2.png"><h3>Repelente Natural</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
+<div class="card"><img src="producto3.png"><h3>Agua Florida</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
+<div class="card"><img src="producto4.png"><h3>Desodorante Natural</h3><a href="https://wa.me/5492215980355">Agregar al pedido</a></div>
 </div>
 </section>
 
 <section class="seccion" id="contacto">
 <h2>Contacto</h2>
-<p style="font-size:1.5rem;font-weight:bold;">📱 +54 9 221 598-0355</p>
 <br>
-<a href="https://wa.me/5492215980355" class="boton">Pedir por WhatsApp</a>
+<p>+54 9 221 598-0355</p>
 </section>
 
 <footer>Sisa Killari • Productos Naturales</footer>
 
-<a class="whatsapp" href="https://wa.me/5492215980355">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/5492215980355">💬</a>
+
 </body>
 </html>
