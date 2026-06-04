@@ -5,66 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sisa Killari</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap');
+
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
 font-family:Georgia,serif;
-background:linear-gradient(180deg,#87a47e,#dfe9d8,#f3efe7);
+background:url('fondo.png') center center / cover fixed no-repeat;
 color:#31422f;
 }
+
+.overlay{
+background:rgba(245,245,238,.78);
+min-height:100vh;
+padding:20px 12px 120px;
+}
+
 .logo{
 display:block;
-width:180px;
-margin:20px auto 10px;
+width:240px;
+max-width:85%;
+margin:10px auto 25px;
 border-radius:50%;
-box-shadow:0 8px 20px rgba(0,0,0,.15);
+box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
-.catalogo{
-display:block;
-width:96%;
-max-width:900px;
-margin:10px auto 20px;
-border-radius:20px;
-box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
+
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
-padding:16px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
 max-width:1100px;
 margin:auto;
 }
+
 .card{
-position:relative;
-background:rgba(255,255,255,.8);
-border-radius:18px;
+background:rgba(255,255,255,.65);
+backdrop-filter:blur(8px);
+border-radius:22px;
 overflow:hidden;
+position:relative;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
-.card img{width:100%;display:block}
+
+.card img{
+width:100%;
+display:block;
+}
+
 .add{
-position:absolute;top:10px;right:10px;
-width:40px;height:40px;border:none;border-radius:50%;
-background:#5b8c57;color:white;font-size:24px;
+position:absolute;
+top:10px;
+right:10px;
+width:42px;
+height:42px;
+border:none;
+border-radius:50%;
+background:#5f8d5d;
+color:white;
+font-size:24px;
+cursor:pointer;
 }
-.flash{animation:flash .45s}
-@keyframes flash{50%{box-shadow:0 0 25px #55ff88}}
+
+.flash{
+animation:flash .45s;
+}
+
+@keyframes flash{
+50%{box-shadow:0 0 30px #6cff96;}
+}
+
 .esencia{
 max-width:900px;
-margin:20px auto 100px;
-padding:22px;
-background:rgba(255,255,255,.75);
-border-radius:18px;
+margin:35px auto;
+padding:25px;
+background:rgba(255,255,255,.70);
+backdrop-filter:blur(8px);
+border-radius:22px;
 }
+
 .esencia h2{
 font-family:'Cormorant Garamond',serif;
-font-size:42px;
-margin-bottom:10px;
+font-size:48px;
+margin-bottom:12px;
 }
+
+.esencia p{
+font-size:1.1rem;
+line-height:1.8;
+}
+
 .float{
 position:fixed;
-bottom:16px;
-width:50px;height:50px;
+bottom:18px;
+width:54px;
+height:54px;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -72,17 +106,30 @@ justify-content:center;
 text-decoration:none;
 color:white;
 z-index:1000;
+font-size:24px;
 }
-.cart{left:12px;background:#5b7c55}
-.wa{right:12px;background:#25D366}
+
+.cart{
+left:14px;
+background:#5f7f58;
+}
+
+.wa{
+right:14px;
+background:#25D366;
+}
+
 .badge{
 position:absolute;
-top:-4px;right:-4px;
-background:#d33;color:white;
+top:-4px;
+right:-4px;
+background:#d53939;
+color:white;
 border-radius:50%;
 font-size:11px;
-padding:2px 6px;
+padding:3px 6px;
 }
+
 .sidebar{
 position:fixed;
 top:0;
@@ -92,32 +139,46 @@ height:100%;
 background:white;
 padding:20px;
 transition:.3s;
-box-shadow:-4px 0 20px rgba(0,0,0,.2);
 overflow:auto;
+box-shadow:-4px 0 20px rgba(0,0,0,.25);
 pointer-events:none;
+z-index:1200;
 }
+
 .sidebar.open{
 right:0;
 pointer-events:auto;
 }
-.row{display:flex;justify-content:space-between;margin:8px 0}
-textarea{width:100%;height:80px;margin-top:10px}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:10px 0;
+}
+
+textarea{
+width:100%;
+height:90px;
+margin-top:12px;
+}
+
 .btnpedido{
 display:block;
 margin-top:15px;
-background:#5b7c55;
-color:white;
 padding:12px;
 text-align:center;
-border-radius:10px;
+background:#5f7f58;
+color:white;
 text-decoration:none;
+border-radius:12px;
 }
 </style>
 </head>
 <body>
 
+<div class="overlay">
+
 <img src="logo.png" class="logo">
-<img src="catalogo.png" class="catalogo">
 
 <div class="grid">
 <div class="card"><button class="add" onclick="agregar('Crema Curativa',this)">+</button><img src="producto1.png"></div>
@@ -128,7 +189,11 @@ text-decoration:none;
 
 <div class="esencia">
 <h2>Nuestra Esencia</h2>
-<p>En Sisa Killari elaboramos productos naturales inspirados en los saberes ancestrales, el poder de las plantas y el cuidado consciente del cuerpo. Cada preparación es artesanal y pensada para acompañar el bienestar cotidiano.</p>
+<p>
+En Sisa Killari honramos el vínculo entre la naturaleza y el bienestar. Elaboramos productos artesanales inspirados en conocimientos ancestrales, utilizando ingredientes naturales seleccionados con cuidado y respeto. Cada preparación nace con la intención de acompañar el equilibrio, la limpieza y el cuidado consciente del cuerpo.
+</p>
+</div>
+
 </div>
 
 <div id="sidebar" class="sidebar">
@@ -138,35 +203,49 @@ text-decoration:none;
 <a id="pedido" class="btnpedido" target="_blank">🌿 Hacer mi pedido</a>
 </div>
 
-<a href="#" class="float cart" onclick="toggleCart();return false;">🛒<span id="count" class="badge">0</span></a>
-<a href="https://wa.me/5492215980355" class="float wa">☎</a>
+<a href="#" class="float cart" onclick="toggleCart();return false;">
+🛒
+<span id="count" class="badge">0</span>
+</a>
+
+<a href="https://wa.me/5492215980355" class="float wa">💬</a>
 
 <script>
 let carrito={};
+
 function agregar(nombre,btn){
 carrito[nombre]=(carrito[nombre]||0)+1;
 btn.parentElement.classList.add('flash');
 setTimeout(()=>btn.parentElement.classList.remove('flash'),450);
 render();
 }
+
 function cambiar(n,v){
 carrito[n]+=v;
 if(carrito[n]<=0) delete carrito[n];
 render();
 }
+
 function render(){
 document.getElementById('count').innerText=Object.values(carrito).reduce((a,b)=>a+b,0);
+
 let html='';
 for(let k in carrito){
-html+=`<div class="row">${k} <span><button onclick="cambiar('${k}',-1)">-</button> ${carrito[k]} <button onclick="cambiar('${k}',1)">+</button></span></div>`;
+html+=`<div class="row">${k}<span><button onclick="cambiar('${k}',-1)">-</button> ${carrito[k]} <button onclick="cambiar('${k}',1)">+</button></span></div>`;
 }
 document.getElementById('items').innerHTML=html;
-let txt='Hola Sisa Killari%0A%0AQuiero pedir:%0A';
-for(let k in carrito){txt+='• '+k+' x'+carrito[k]+'%0A';}
+
+let txt='Hola Sisa Killari 🌿%0A%0AQuiero pedir:%0A';
+for(let k in carrito){
+txt+='• '+k+' x'+carrito[k]+'%0A';
+}
 txt+='%0AObservaciones:%0A'+encodeURIComponent(document.getElementById('obs').value||'');
+
 document.getElementById('pedido').href='https://wa.me/5492215980355?text='+txt;
 }
+
 document.getElementById('obs').addEventListener('input',render);
+
 function toggleCart(){
 document.getElementById('sidebar').classList.toggle('open');
 }
