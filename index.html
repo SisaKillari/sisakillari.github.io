@@ -1,45 +1,65 @@
-<!DOCTYPE html><html lang='es'><head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>Sisa Killari</title><link rel='stylesheet' href='style.css'></head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sisa Killari</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-<header class='hero'>
-<div class='overlay'>
-<img src='logotipo.png' class='logo'>
-<h1>Sisa Killari</h1>
-<p>Natural • Artesanal • Consciente</p>
-<a href='#productos' class='btn'>Ver Productos</a>
-</div>
+<header>
+<div class="logo">🌿 Sisa Killari</div>
+<nav><a href="#productos">Productos</a><a href="#contacto">Contacto</a></nav>
 </header>
 
-<nav class='topbar'>
-<div>Sisa Killari</div>
-<button id='cartBtn'>🛒 <span id='count'>0</span></button>
-</nav>
+<section class="hero">
+<h1>Naturaleza, Tradición y Bienestar</h1>
+<p>Productos artesanales inspirados en la sabiduría ancestral.</p>
+<a class="btn" href="#productos">Ver productos</a>
+</section>
 
-<section id='productos'>
+<section class="historia">
+<h2>Nuestra Historia</h2>
+<p>Sisa Killari nace de la unión entre naturaleza, bienestar y elaboración artesanal.</p>
+</section>
+
+<section id="productos">
 <h2>Nuestros Productos</h2>
-<div class='grid'>
-<div class='card'><img src='producto1.png'><h3>Desodorante Natural</h3><p>Consultar precio</p><button onclick="addItem('Desodorante Natural')">➕ Agregar</button></div>
-<div class='card'><img src='producto2.png'><h3>Agua Florida</h3><p>Consultar precio</p><button onclick="addItem('Agua Florida')">➕ Agregar</button></div>
-<div class='card'><img src='producto3.png'><h3>Repelente Natural</h3><p>Consultar precio</p><button onclick="addItem('Repelente Natural')">➕ Agregar</button></div>
-<div class='card'><img src='producto4.png'><h3>Crema Curativa</h3><p>Consultar precio</p><button onclick="addItem('Crema Curativa')">➕ Agregar</button></div>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6"><h3>Aceite Analgésico</h3><p>$8.500</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15"><h3>Crema de Cannabis</h3><p>$10.900</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf"><h3>Agua Florida</h3><p>$6.500</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1514996937319-344454492b37"><h3>Aceites Esenciales</h3><p>Desde $4.900</p></div>
 </div>
 </section>
 
-<section><h2>Nuestra Esencia</h2>
-<p>Elaboramos productos naturales de manera artesanal inspirados en el bienestar, la naturaleza y el cuidado consciente.</p></section>
+<section class="beneficios">
+<h2>¿Por qué Sisa Killari?</h2>
+<ul>
+<li>Elaboración artesanal</li>
+<li>Ingredientes seleccionados</li>
+<li>Inspiración ancestral</li>
+<li>Producción responsable</li>
+</ul>
+</section>
 
-<section><h2>ℹ️ Información</h2>
-<p>📦 Envíos a todo el país.<br>📍 Villa Elisa, Buenos Aires.<br>💳 Coordinación de pago por WhatsApp.</p></section>
+<section class="faq">
+<h2>Preguntas Frecuentes</h2>
+<details><summary>¿Realizan envíos?</summary><p>Sí, a todo el país.</p></details>
+<details><summary>¿Cómo comprar?</summary><p>Por WhatsApp.</p></details>
+</section>
 
-<div id='cart' class='cart'>
-<h3>Mi Pedido</h3>
-<div id='items'></div>
-<input id='nombre' placeholder='Nombre'>
-<input id='provincia' placeholder='Provincia'>
-<input id='localidad' placeholder='Localidad'>
-<button onclick='sendWhatsApp()'>Finalizar por WhatsApp</button>
-</div>
+<section id="contacto">
+<h2>Contacto</h2>
+<form id="formulario">
+<input placeholder="Nombre">
+<input placeholder="Email">
+<textarea placeholder="Mensaje"></textarea>
+<button>Enviar</button>
+</form>
+</section>
 
-<a class='wa' href='https://wa.me/5492215980355'>💬</a>
-<script src='app.js'></script></body></html>
+<a class="whatsapp" href="https://wa.me/542215551234">💬</a>
+<script src="app.js"></script>
+</body>
+</html>
